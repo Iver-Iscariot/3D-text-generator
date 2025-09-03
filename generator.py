@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import textwrap
-
+ 
 
 zero_distance = 30  # defining zero-point away from the face
 eye_spacing   = 7.5 # distance between the eyes
@@ -11,10 +11,10 @@ verlen = 10
 padding = 0.5
 
 # distances you want demonstrated
-distances = [0,1,2.5,-1,-2.5]
+distances = [0,1,2.5, 4,-1,-2.5, -4]
 
 # set the font size
-cm = 0.4  # height in centimeters
+cm = 0.6  # height in centimeters
 font_size_in_points = cm * 72 / 2.54 * 2.7
 
 
@@ -35,7 +35,7 @@ filename = "input.txt"
 paragraph = parse_text_file(filename)
 
 
-wrap_width = int(horlen * 1.15 / cm)
+wrap_width = int(horlen * 1.14 / cm)
 
 
 # Wrap each line individually, preserving empty lines
@@ -62,8 +62,8 @@ def plotSub(k):
         ax[0][k].text( padding, verlen - padding -cm - cm*i*1.8, wrapped_text[i], fontsize=font_size_in_points, ha='left', va='bottom', color='black')
 
 
-    ax[0][k].plot([0.05, 1.05], [0.05,0.05], color='red', lw=2)  # horizontal line
-    ax[0][k].plot([0.05, 0.05], [0.05,1.05], color='red', lw=2)  # vertical line
+    ax[0][k].plot([0.05, 4.05], [0.05,0.05], color='red', lw=2)  # horizontal line
+    ax[0][k].plot([0.05, 0.05], [0.05,4.05], color='red', lw=2)  # vertical line
 
     ax[0][k].set_xlim(0, horlen); ax[0][k].set_ylim(0, verlen)
     ax[0][k].set_xticks([]);      ax[0][k].set_yticks([])
